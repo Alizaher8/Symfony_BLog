@@ -1,0 +1,78 @@
+{% macro postMacro(Post) %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('post') }}
+    {% endblock %}
+
+
+    <div class="post-container">
+        <!-- Post Header -->
+        <div class="user-info">
+            <img src="{{ asset('dist/assets/img/avatar2.png') }}" class="user-avatar" alt="User avatar">
+            <div>
+                <h6 class="mb-0">John Doe</h6>
+                <small class="text-muted">Posted 2 hours ago</small>
+            </div>
+        </div>
+
+        <!-- Post Content -->
+        <div class="post-content">
+            <p>Check out this amazing Symfony tutorial I found! It really helped me improve my development skills.</p>
+            <img src="{{ asset('dist/assets/img/prod-3.jpg') }}" class="post-image" alt="Post image">
+        </div>
+
+        <!-- Post Actions -->
+        <div class="post-actions">
+ <span class="action-btn">
+            <i class="bi bi-heart btn-icon"></i> Like
+
+ </span>
+            <span class="action-btn">
+            <i class="bi bi-share btn-icon"></i> Share
+        </span>
+            <span class="action-btn">
+                <i class="bi bi-chat-dots"></i> 15 comments
+            </span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comment-section">
+            <!-- Comment 1 -->
+            <div class="comment">
+                <img src="{{ asset('dist/assets/img/user2-160x160.jpg') }}" class="comment-avatar" alt="Commenter avatar">
+                <div class="comment-content">
+                    <div class="mb-2">
+                        <strong>Jane Smith</strong>
+                        <span class="text-muted">•</span>
+                        <span class="text-muted">1 hour ago</span>
+                    </div>
+                    <p class="mb-0">Great tutorial! I learned a lot from it too!</p>
+                </div>
+            </div>
+
+            <!-- Comment 2 -->
+            <div class="comment">
+                <img src="{{ asset('dist/assets/img/user6-128x128.jpg') }}" class="comment-avatar" alt="Commenter avatar">
+                <div class="comment-content">
+                    <div class="mb-2">
+                        <strong>Mike Johnson</strong>
+                        <span class="text-muted">•</span>
+                        <span class="text-muted">30 minutes ago</span>
+                    </div>
+                    <p class="mb-0">I'm definitely going to check this out. Thanks for sharing!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Comment Form -->
+        <div class="new-comment">
+            <img src="{{ asset('dist/assets/img/user4-128x128.jpg') }}" class="comment-avatar" alt="User avatar">
+            <label>
+                <input type="text" class="form-control comment-input" placeholder="Write a comment...">
+            </label>
+            <button class="btn btn-primary">Post</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+
+{% endmacro %}

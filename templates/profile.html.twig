@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+{% import 'Macro/postMacro.twig' as post %}
+{% import 'Macro/profileMacro.twig' as profile %}
+{% block stylessheet %}
+{{ parent() }}
+    {{ encore_entry_link_tags('profile') }}
+
+{% endblock %}
+
+{% block javascripts%}
+{{ parent() }}
+    {{ encore_entry_script_tags('profile') }}
+    <style>
+        .tab-button {
+            cursor: pointer;
+            margin: 0 5px;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent; /* Default */
+        }
+
+    </style>
+{% endblock %}
+{% block body %}
+    <body class="layout-fixed sidebar-expand-lg bg-body-secondary">
+    <!-- begin::App Wrapper -->
+    <div class="app-wrapper d-flex">
+        <!-- Include Sidebar -->
+        {% include 'sidbar.html.twig' %}
+
+        <!-- Main Content: Ensure it spans fully between Nav and Sidebar -->
+        <main class="app-main w-100">
+            <!-- Include Navbar -->
+            {% include 'nav.html.twig' %}
+
+            <!-- Profile Section -->
+            <div class="app-content container-fluid px-4 py-5" style="min-height: calc(100vh - 70px);">
+                <section class="h-100 gradient-custom-2">
+                    <div class="container-fluid py-0 h-100">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12"> <!-- Make the profile container occupy full width -->
+                                <div class="card">
+                                    <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+                                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                                                 alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                                 style="width: 150px; z-index: 1">
+                                            <button type="button" class="btn btn-outline-dark text-body"
+                                                    data-mdb-ripple-color="dark" style="z-index: 1;">
+                                                Edit profile
+                                            </button>
+                                        </div>
+                                        <div class="ms-3" style="margin-top: 130px;">
+                                            <h5>Andy Horwitz</h5>
+                                            <p>New York</p>
+                                        </div>
+                                    </div>
+                                    <div class="p-4 text-black bg-body-tertiary">
+                                        <div class="d-flex justify-content-end text-center py-1 text-body">
+                                            <div>
+                                                <p class="mb-1 h5">253</p>
+                                                <p class="small text-muted mb-0">Photos</p>
+                                            </div>
+                                            <div class="px-3">
+                                                <p class="mb-1 h5">1026</p>
+                                                <p class="small text-muted mb-0">Followers</p>
+                                            </div>
+                                            <div>
+                                                <p class="mb-1 h5">478</p>
+                                                <p class="small text-muted mb-0">Following</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-4 text-black">
+                                        <div class="mb-5 text-body">
+                                            <p class="lead fw-normal mb-1">About</p>
+                                            <div class="p-4 bg-body-tertiary">
+                                                <p class="font-italic mb-1">Web Developer</p>
+                                                <p class="font-italic mb-1">Lives in New York</p>
+                                                <p class="font-italic mb-0">Photographer</p>
+                                            </div>
+                                        </div>
+                                        <!-- Tab Buttons -->
+                                        <div class="d-flex justify-content-between align-items-center mb-4 text-body">
+                                            <p class="lead fw-normal mb-0 tag-button">Posts</p>
+                                            <p class="lead fw-normal mb-0 tag-button">Follows</p>
+                                            <p class="lead fw-normal mb-0 tag-button">Settings</p>
+                                        </div>
+                                        <!-- Tab Content -->
+                                        <div class="row g-2">
+                                            <div class="col mb-2" id="Posts" style="display: none;">
+                                                {{ post.postMacro('Post') }}
+                                            </div>
+                                            <div class="col mb-2" id="Follows" style="display: none;">
+                                                {{ profile.profileMacro('Account') }}
+                                                {{ profile.profileMacro('Account') }}
+                                                {{ profile.profileMacro('Account') }}
+                                                {{ profile.profileMacro('Account') }}
+                                            </div>
+                                            <div class="col mb-2" id="Settings" style="display: none;">
+                                                {{ profile.profileMacro('Account') }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        {{ parent() }}
+        {{ encore_entry_script_tags('profile') }}
+
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('tag-button')) {
+                const elementId = e.target.textContent.trim();
+                const targetSection = document.getElementById(elementId);
+
+                if (targetSection) {
+                    const allSections = document.querySelectorAll('.col.mb-2');
+                    allSections.forEach(section => {
+                        section.style.display = "none"; // Hide all sections
+                    });
+
+                    targetSection.style.display = "block"; // Show the clicked section
+                } else {
+                    console.warn(`Element with ID "${elementId}" not found.`);
+                }
+            }
+        });
+    </script>
+    </body>
+{% endblock %}

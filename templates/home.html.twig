@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% import 'Macro/postMacro.twig' as post %}
+{% block title %}
+{{ parent() }} | Home
+{% endblock %}
+{% block stylessheet %}
+    {{ parent() }}
+
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+
+    <script
+            src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
+            integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
+            crossorigin="anonymous"
+    ></script>
+
+{% endblock %}
+{% block body %}
+    <body class="layout-fixed sidebar-expand-lg bg-body-secondary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+        {% include 'nav.html.twig' %}
+        <!--begin::Sidebar-->
+        {% include 'sidbar.html.twig' %}
+        <!--end::Sidebar-->
+        <!--begin::App Main-->
+        <main class="app-main">
+            <!--begin::App Content Header-->
+            <div class="app-content">
+                <!--begin::Container-->
+                <div class="container-fluid">
+                    <!--begin::Row-->
+                    <div class="row">
+                        {{include('add-post.html.twig')}}
+                    </div>
+
+                    <!--end::Row-->
+                    <div class="row">
+                        {{ post.postMacro('ali') }}
+                    </div>
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::App Content-->
+        </main>
+        <!--end::App Main-->
+        <!--begin::Footer-->
+        <footer>
+            <!-- Add footer content -->
+        </footer>
+        <!--end::Footer-->
+    </div>
+    <!--end::App Wrapper-->
+    </body>
+{% endblock %}
