@@ -1,5 +1,6 @@
 import './bootstrap.js';
 import 'jquery';
+
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -7,6 +8,13 @@ import 'jquery';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
-
+import 'apexcharts';
+import 'bootstrap';
+import '@popperjs/core';
+import 'overlayscrollbars';
+import './styles/overlayscrollbars.min.css';
+import "@fontsource/source-sans-3"; // Defaults to weight 400
+import "@fontsource/source-sans-3/400.css"; // Specify weight
+import "@fontsource/source-sans-3/400-italic.css"; // Specify weight and style
+import 'dropzone';
+import 'dropzone/dist/dropzone.css';

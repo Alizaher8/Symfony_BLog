@@ -11,11 +11,15 @@
 {% block body %}
 
     <body class="layout-fixed sidebar-expand-lg bg-body-secondary">
-    <!--begin::App Wrapper-->
-    <div class="app-wrapper">
-        {% include 'nav.html.twig' %}
-        <!--begin::Sidebar-->
+    <!-- begin::App Wrapper -->
+    <div class="app-wrapper d-flex">
+        <!-- Include Sidebar -->
         {% include 'sidbar.html.twig' %}
+
+        <!-- Main Content: Ensure it spans fully between Nav and Sidebar -->
+        <main class="app-main w-100">
+            <!-- Include Navbar -->
+            {% include 'nav.html.twig' %}
         <!--end::Sidebar-->
         <div class="mx-2">
         <table class="table align-middle mb-2 mt-2 bg-white">
@@ -127,7 +131,9 @@
                 </td>
             </tr>
             </tbody>
-        </table></div>    </div>
+        </table>
+        </div></main>
+    </div>
     </body>
 
 {% endblock %}

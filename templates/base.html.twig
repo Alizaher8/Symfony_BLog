@@ -6,49 +6,12 @@
     <title>{% block title %}BLog{% endblock %}</title>
      {% block stylessheet %}
          {{ encore_entry_link_tags('app') }}
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
-            integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
-            crossorigin="anonymous"
-    />
-    <!--end::Fonts-->
-    <!--begin::Third Party Plugin(OverlayScrollbars)-->
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
-            integrity="sha256-tZHrRjVqNSRyWg2wbppGnT833E/Ys0DHWGwT04GiqQg="
-            crossorigin="anonymous"
-    />
-         <link
-                 rel="stylesheet"
-                 href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
-                 integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
-                 crossorigin="anonymous"
-         />
-    <!--end::Third Party Plugin(OverlayScrollbars)-->
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}" />
+          {{ encore_entry_link_tags('adminlte') }}
      {% endblock %}
     {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-        <!--begin::Third Party Plugin(OverlayScrollbars)-->
-        <script
-                src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
-                integrity="sha256-dghWARbRe2eLlIJ56wNB+b760ywulqK3DzZYEpsg2fQ="
-                crossorigin="anonymous"
-        ></script>
-        <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-        <script
-                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-                crossorigin="anonymous"
-        ></script>
-
-        <script src="{{ asset('dist/js/adminlte.js') }}" defer></script>
-        <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
-
-
-    {% endblock %}
+        {{ encore_entry_script_tags('adminlte') }}
+           {% endblock %}
 </head>
 <!--end::Head-->
 <!--begin::Body-->

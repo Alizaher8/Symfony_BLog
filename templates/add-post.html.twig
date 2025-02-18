@@ -1,18 +1,6 @@
 {% extends 'base.html.twig' %}
-{% block stylessheet %}
-    {% block stylesheets %}
 
-        {{ encore_entry_link_tags('add-post') }}
-    {% endblock %}{% endblock %}
-{% block javascripts%}
-
-    {{ encore_entry_script_tags('add-post') }}
-{% endblock %}
 {% block body %}
-
-
-
-    <div class="container">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title mb-0">Create New Post</h3>
@@ -31,19 +19,24 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="postImage" class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" id="postImage" accept="image/*" hidden>
-                        <button type="button" class="btn btn-primary w-100 image-upload-btn" onclick="document.getElementById('postImage').click()">Upload Image</button>
-                        <div id="imagePreview" class="text-center"></div>
+                        <div id="dropzone" class="dropzone">
+                            <div class="dz-message">
+                                <p>Drag and drop files here or click to upload</p>
+                            </div>
+                        </div>
+
+                        <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+                            <!-- Include your CSRF token -->
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('upload') }}"/>
+                        </form>
                     </div>
 
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">Create Post</button>
-                        <button type="button" class="btn btn-secondary close-card-btn">Cancel</button>                    </div>
+                   </div>
                 </form>
             </div>
         </div>
-    </div>
 
 {% endblock %}
 

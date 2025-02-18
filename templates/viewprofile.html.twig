@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
-{% import 'Macro/postMacro.twig' as post %}
+{%block title %}
+    {{ parent() }} | View Profile
+{% endblock %}
 {% import 'Macro/profileMacro.twig' as profile %}
-{% import'Macro/editprofile.twig' as editProfile %}
-{% block body %}
 
+{% block body %}
     <body class="layout-fixed sidebar-expand-lg bg-body-secondary">
     <!-- begin::App Wrapper -->
     <div class="app-wrapper d-flex">
@@ -27,10 +28,6 @@
                                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                                                  alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                                                  style="width: 150px; z-index: 1">
-                                            <button type="button" class="btn btn-outline-dark text-body tag-button"
-                                                    data-mdb-ripple-color="dark" style="z-index: 1;">
-                                                Edit profile
-                                            </button>
                                         </div>
                                         <div class="ms-3" style="margin-top: 130px;">
                                             <h5>Andy Horwitz</h5>
@@ -64,25 +61,6 @@
                                         </div>
                                         <!-- Tab Buttons -->
                                         <!-- Tab Content -->
-                                        <div class="row g-2">
-                                            <div class="col mb-2" id="Posts" style="display: none;">
-                                                {{ post.postMacro('Post') }}
-                                            </div>
-                                            <div class="col mb-2 container" id="Followers" style="display: none;">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        {{ profile.profileMacro('id') }}
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-
-                                            <div class="col mb-2" id="Edit profile" style="display: none;">
-                                                {{ editProfile.editptofile() }}
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -93,27 +71,6 @@
         </main>
     </div>
 
-    <!-- JavaScript -->
-    <script>
-
-
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('tag-button')) {
-                const elementId = e.target.textContent.trim();
-                const targetSection = document.getElementById(elementId);
-
-                if (targetSection) {
-                    const allSections = document.querySelectorAll('.col.mb-2');
-                    allSections.forEach(section => {
-                        section.style.display = "none"; // Hide all sections
-                    });
-
-                    targetSection.style.display = "block"; // Show the clicked section
-                } else {
-                    console.warn(`Element with ID "${elementId}" not found.`);
-                }
-            }
-        });
-    </script>
     </body>
+
 {% endblock %}

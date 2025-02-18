@@ -5,7 +5,7 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
             <!--begin::Brand Link-->
-            <a href="{{ path('home_page') }}" class="brand-link">
+            <a href="{{ path('admin_home_page') }}" class="brand-link">
                 <!--begin::Brand Image-->
                 <img
                         src="{{ asset('dist/assets/img/AdminLTELogo.png') }}"
@@ -31,7 +31,7 @@
                         data-accordion="false"
                 >
                     <li class="nav-item ">
-                        <a href="{{ path('home_page') }}" class="nav-link active">
+                        <a href="{{ path('admin_home_page') }}" class="nav-link active">
                             <i class="nav-icon bi bi-speedometer"></i>
                             <p>
                                 Home
@@ -41,10 +41,20 @@
 
                     </li>
                     <li class="nav-item  ">
-                        <a href="{{ path('profile_page') }}" class="nav-link ">
+                        <a href="{{ path('admin_postdeleted_page') }}" class="nav-link ">
                             <i class="nav-icon bi bi-speedometer"></i>
                             <p>
-                                Profile
+                                Post Deleted
+                                <i class="nav-arrow bi bi-chevron-right"></i>
+                            </p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="{{ path('users_page') }}" class="nav-link ">
+                            <i class="nav-icon bi bi-speedometer"></i>
+                            <p>
+                                All Users
                                 <i class="nav-arrow bi bi-chevron-right"></i>
                             </p>
                         </a>
@@ -60,13 +70,6 @@
                         </a>
 
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon bi bi-palette"></i>
-                            <p>Logout</p>
-                        </a>
-                    </li>
-
                 </ul>
                 <!--end::Sidebar Menu-->
             </nav>

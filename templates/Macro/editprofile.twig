@@ -1,0 +1,50 @@
+{% macro editptofile() %}
+    <form>
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="form6Example1" class="form-control" />
+                    <label class="form-label" for="form6Example1">First name</label>
+                </div>
+            </div>
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="text" id="form6Example2" class="form-control" />
+                    <label class="form-label" for="form6Example2">Last name</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="email" id="form6Example1" class="form-control" />
+                    <label class="form-label" for="form6Example1">Email</label>
+                </div>
+            </div>
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="number" id="form6Example2" class="form-control" />
+                    <label class="form-label" for="form6Example2">Phone</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="password" id="form6Example1" class="form-control" />
+                    <label class="form-label" for="form6Example1">Password</label>
+                </div>
+            </div>
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <input type="file" id="form6Example2" class="form-control" />
+                    <label class="form-label" for="form6Example2">Photo</label>
+                </div>
+            </div>
+        </div>
+        <!-- Submit button -->
+        <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Edit</button>
+    </form>
+{% endmacro %}

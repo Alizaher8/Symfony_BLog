@@ -4,12 +4,21 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\services\AccountService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class AccountAuthController extends AbstractController
 {
+
+    private AccountService $accountService;
+
+    public function __construct(AccountService $accountService)
+    {
+        $this->accountService = $accountService;
+    }
+
     #[Route('/login',name: 'login_page')]
     public function login(): Response
     {

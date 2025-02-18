@@ -3,55 +3,39 @@
 {% block title %}
 {{ parent() }} | Home
 {% endblock %}
-{% block stylessheet %}
-    {{ parent() }}
-
-{% endblock %}
-{% block javascripts %}
-{{ parent() }}
-
-    <script
-            src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
-            integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8="
-            crossorigin="anonymous"
-    ></script>
-
-{% endblock %}
 {% block body %}
     <body class="layout-fixed sidebar-expand-lg bg-body-secondary">
-    <!--begin::App Wrapper-->
-    <div class="app-wrapper">
-        {% include 'nav.html.twig' %}
-        <!--begin::Sidebar-->
+    <!-- begin::App Wrapper -->
+    <div class="app-wrapper d-flex">
+        <!-- Include Sidebar -->
         {% include 'sidbar.html.twig' %}
-        <!--end::Sidebar-->
-        <!--begin::App Main-->
-        <main class="app-main">
-            <!--begin::App Content Header-->
-            <div class="app-content">
-                <!--begin::Container-->
-                <div class="container-fluid">
-                    <!--begin::Row-->
-                    <div class="row">
-                        {{include('add-post.html.twig')}}
-                    </div>
 
-                    <!--end::Row-->
-                    <div class="row">
-                        {{ post.postMacro('ali') }}
-                    </div>
-                </div>
-                <!--end::Container-->
-            </div>
-            <!--end::App Content-->
-        </main>
-        <!--end::App Main-->
-        <!--begin::Footer-->
-        <footer>
-            <!-- Add footer content -->
-        </footer>
-        <!--end::Footer-->
+        <!-- Main Content: Ensure it spans fully between Nav and Sidebar -->
+
+         <main class="app-main w-100">
+             <!-- Include Navbar -->
+             {% include 'nav.html.twig' %}
+
+             <!-- Profile Section -->
+             <div class="app-content container-fluid px-4 py-5" style="min-height: calc(100vh - 70px);">
+                 <section class="h-100 gradient-custom-2">
+                     <div class="container-fluid py-0 h-100">
+                         <div class="row d-flex justify-content-center">
+                             <div class="col-12">
+                        {{include('add-post.html.twig')}}
+                             </div>
+                             <div class="col-12">
+                                 {{post.postMacro('Alli')}}
+                                 {{post.postMacro('Alli')}}
+                                 {{post.postMacro('Alli')}}
+                                 {{post.postMacro('Alli')}}
+                             </div>
+                         </div>
+                     </div>
+                 </section>
+             </div>
+         </main>
     </div>
-    <!--end::App Wrapper-->
+
     </body>
 {% endblock %}

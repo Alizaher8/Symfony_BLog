@@ -1,9 +1,12 @@
 {% macro postMacro(Post) %}
-    {% block stylesheets %}
+    {% block stylessheet %}
+
         {{ encore_entry_link_tags('post') }}
     {% endblock %}
+    {% block javascripts %}
 
-
+        {{ encore_entry_script_tags('post') }}
+    {% endblock %}
     <div class="post-container">
         <!-- Post Header -->
         <div class="user-info">

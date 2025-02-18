@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% import 'Macro/postMacro.twig' as post %}
+{% block title %}
+    {{ parent() }} | Admin Home
+{% endblock %}
+{% block body %}
+    <body class="layout-fixed sidebar-expand-lg bg-body-secondary">
+    <!-- begin::App Wrapper -->
+    <div class="app-wrapper d-flex">
+        <!-- Include Sidebar -->
+        {% include 'admin/admin_sidebar.html.twig' %}
+
+        <!-- Main Content: Ensure it spans fully between Nav and Sidebar -->
+
+        <main class="app-main w-100">
+            <!-- Include Navbar -->
+            {% include 'nav.html.twig' %}
+
+            <!-- Profile Section -->
+            <div class="app-content container-fluid px-4 py-5" style="min-height: calc(100vh - 70px);">
+                <section class="h-100 gradient-custom-2">
+                    <div class="container-fluid py-0 h-100">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12">
+                                {{include('add-post.html.twig')}}
+                            </div>
+                            <div class="col-12">
+                                {{post.postMacro('Alli')}}
+                                {{post.postMacro('Alli')}}
+                                {{post.postMacro('Alli')}}
+                                {{post.postMacro('Alli')}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    </body>
+{% endblock %}
